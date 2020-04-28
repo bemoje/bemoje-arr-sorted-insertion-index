@@ -49,7 +49,7 @@ function arrSortedInsertionIndex(arr, element, compare) {
 		} else if (ordering > 0) {
 			high = i - 1;
 		} else {
-			break
+			return i
 		}
 	}
 
