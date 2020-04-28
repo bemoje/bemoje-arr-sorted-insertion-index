@@ -30,10 +30,15 @@
 			return 0
 		}
 
+		let isNumeric = false;
+
 		// handle comparator
 		if (compare) {
 			if (typeof compare === 'object') {
 				// is comparator builder options
+				if (compare.numeric) {
+					isNumeric = true;
+				}
 				compare = arrSortComparator(compare);
 			}
 		} else {
@@ -46,16 +51,31 @@
 		let i, ordering;
 
 		// find position by binary search
-		while (high >= low) {
-			i = ((high + low) / 2) >>> 0;
-			ordering = compare(arr[i], element);
+		if (isNumeric) {
+			// numerically
+			while (low < high) {
+				i = (low + high) >>> 1;
+				ordering = compare(arr[i], element);
 
-			if (ordering < 0) {
-				low = i + 1;
-			} else if (ordering > 0) {
-				high = i - 1;
-			} else {
-				return i
+				if (ordering < 0) {
+					low = i + 1;
+				} else {
+					high = i;
+				}
+			}
+		} else {
+			// lexicographically
+			while (high >= low) {
+				i = ((high + low) / 2) >>> 0;
+				ordering = compare(arr[i], element);
+
+				if (ordering < 0) {
+					low = i + 1;
+				} else if (ordering > 0) {
+					high = i - 1;
+				} else {
+					return i + 1
+				}
 			}
 		}
 
@@ -65,7 +85,7 @@
 		}
 
 		// return index
-		return i
+		return low
 	}
 
 	/**

@@ -8,12 +8,12 @@ describe('arrSortedInsertionIndex', () => {
 
 	test('one duplicate', () => {
 		const arr = [1, 2, 3, 4, 5]
-		expect(arrSortedInsertionIndex(arr, 3)).toBe(2)
+		expect(arrSortedInsertionIndex(arr, 3)).toBe(3)
 	})
 
 	test('two duplicates', () => {
 		const arr = [1, 2, 3, 3, 4, 5]
-		expect(arrSortedInsertionIndex(arr, 3)).toBe(2)
+		expect(arrSortedInsertionIndex(arr, 3)).toBe(3)
 	})
 
 	test('lower than all', () => {
