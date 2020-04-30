@@ -1,6 +1,6 @@
 {
    "name": "@bemoje/arr-sorted-insertion-index",
-   "version": "3.0.1",
+   "version": "3.0.2",
    "description": "Find the array index of where to add an element to keep it sorted.",
    "main": "dist/arr-sorted-insertion-index.umd.js",
    "module": "dist/arr-sorted-insertion-index.esm.js",
@@ -51,7 +51,7 @@
    },
    "devDependencies": {
       "babel-core": "^6.26.3",
-      "babel-jest": "^25.4.0",
+      "babel-jest": "^25.5.1",
       "babel-preset-env": "^1.7.0",
       "documentation": "^12.3.0",
       "esm": "^3.2.25",
